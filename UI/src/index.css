@@ -1,0 +1,14 @@
+body {
+  margin: 0;
+}
+
+
+@font-face {
+  font-family: Retro Gaming;
+  src: url(./config/fonts/Retro\ Gaming.ttf);
+}
+
+* {
+  font-family: Retro Gaming;
+  outline-color: #d1fb84;
+}
