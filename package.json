@@ -6,6 +6,7 @@
   "main": ".vite/build/main.js",
   "scripts": {
     "start": "electron-forge start",
+    "update": "npm install && cd ./UI && npm install",
     "start:react": "cd ./UI && npm start",
     "build:react": "rm -rf ./static && cd ./UI && npm run build &&  mv ./build/* ../",
     "package": "electron-forge package",
