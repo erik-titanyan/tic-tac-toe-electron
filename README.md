@@ -8,7 +8,7 @@ You can download the .exe setuper file [here](https://drive.google.com/file/d/1R
 
 In the project directory:
 
-### Step 1. open the terminal and run `npm update`
+### Step 1. open the terminal and run `npm run update`
 
 Add/updates all the packages(node_modules)
 
@@ -22,7 +22,7 @@ Builds the react app and creates executable file in `out` directory of the proje
 
 In the project directory:
 
-### Step 1. open the terminal and run `npm start:react`
+### Step 1. open the terminal and run `npm run start:react`
 
 Runs the react app in browser's window in development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
