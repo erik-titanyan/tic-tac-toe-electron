@@ -5,6 +5,7 @@ import { RoutePaths } from "config";
 
 import { StyledCaret, StyledInput } from "./styles";
 import { commandsToRouteMap } from "./constants";
+import "./styles.css";
 
 const Cmd: React.FC = () => {
   const [value, setValue] = useState("");
@@ -24,34 +25,34 @@ const Cmd: React.FC = () => {
     };
   }, [focusInput]);
 
+  const onCmdEnterKeyPress: React.KeyboardEventHandler<HTMLInputElement> =
+    useCallback(
+      (e) => {
+        if (e.key === "Enter") {
+          const trimmedValue = value.trim().toLowerCase();
+          const path = commandsToRouteMap[trimmedValue];
+          if (path) {
+            navigate(path as string);
+          } else {
+            navigate(RoutePaths.Not_Found);
+          }
+          setValue("");
+        }
+      },
+      [navigate, value]
+    );
+
   return (
-    <div style={{ display: "flex" }} onClick={focusInput}>
+    <div className="cmd-wrapper" onClick={focusInput}>
       <StyledInput
         autoFocus
         ref={ref}
         value={value}
         onChange={(e) => setValue(e.target.value)}
-        onKeyDown={(e) => {
-          if (e.key === "Enter") {
-            const trimmedValue = value.trim().toLowerCase();
-            const path = commandsToRouteMap[trimmedValue];
-            if (path) {
-              navigate(path as string);
-            } else {
-              navigate(RoutePaths.Not_Found);
-            }
-            setValue("");
-          }
-        }}
+        onKeyDown={onCmdEnterKeyPress}
       />
-      <p style={{ display: "flex", marginRight: "5px" }}>{">"} cmd:</p>
-      <p
-        style={{
-          display: "flex",
-          color: "#d1fb84",
-          textShadow: "0 0 9px #d1fb84",
-        }}
-      >
+      <p className="cmd-text">{">"} cmd:</p>
+      <p className="cmd-pseudo-input">
         {value} <StyledCaret $delay={0} />
       </p>
     </div>

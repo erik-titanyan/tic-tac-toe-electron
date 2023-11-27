@@ -68,6 +68,7 @@ export const emptySquares = (board: Board) => {
   );
 };
 
+// using minimax algorithm for 3x3 board
 export const minimax = (
   b: Board,
   player: Player,
@@ -149,13 +150,15 @@ export const minimax = (
   return moves[bestMove!];
 };
 
+// using this heuristic algorithm for boards > 3,
+// as minimax algoithm takes too much time
+// to calculate possible combintaions
 export function heuristic(b: Board, n: Size, computerPlayer: Player) {
   const board = [...b];
   let moved = false;
 
   const humanPlayer = computerPlayer === Player.X ? Player.O : Player.X;
 
-  // Check for winning moves
   for (let i = 0; i < n * n; i++) {
     if (!board[i]) {
       board[i] = computerPlayer;
@@ -163,7 +166,7 @@ export function heuristic(b: Board, n: Size, computerPlayer: Player) {
         moved = true;
         break;
       }
-      board[i] = null; // Undo move
+      board[i] = null;
     }
 
     if (moved) {
@@ -171,7 +174,6 @@ export function heuristic(b: Board, n: Size, computerPlayer: Player) {
     }
   }
 
-  // Check for blocking moves
   if (!moved) {
     for (let i = 0; i < n * n; i++) {
       if (!board[i]) {
@@ -182,7 +184,7 @@ export function heuristic(b: Board, n: Size, computerPlayer: Player) {
           moved = true;
           break;
         }
-        board[i] = null; // Undo move
+        board[i] = null;
       }
 
       if (moved) {
@@ -191,7 +193,6 @@ export function heuristic(b: Board, n: Size, computerPlayer: Player) {
     }
   }
 
-  // Fallback to the original strategy
   if (!moved) {
     for (let i = 0; i < n * n; i++) {
       if (!board[i]) {

@@ -6,6 +6,9 @@ export const StyledBtnsWrapper = styled.div`
   svg {
     cursor: pointer;
   }
+  @media (max-width: 920px), (max-height: 714px) {
+    display: none;
+  }
 `;
 
 export const StyledSoundBtnWrapper = styled(StyledBtnsWrapper)`

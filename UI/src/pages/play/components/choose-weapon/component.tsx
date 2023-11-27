@@ -3,10 +3,9 @@ import { StyledText } from "config";
 
 import { Player } from "pages/play/enums";
 import { StyledStepsWrapper } from "pages/play/styles";
+import { IChooseCommonProps } from "pages/play/types";
 
-const ChooseWeapon: React.FC<{ onChoose: (value: Player) => void }> = ({
-  onChoose,
-}) => {
+const ChooseWeapon: React.FC<IChooseCommonProps<Player>> = ({ onChoose }) => {
   return (
     <>
       <StyledText $delay={0}>Choose your weapon</StyledText>

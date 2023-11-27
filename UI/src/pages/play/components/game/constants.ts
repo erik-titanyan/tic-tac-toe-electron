@@ -9,3 +9,5 @@ export const sizeToShapeSize: Record<Size, IShapeSize> = {
   [Size.Extra_Wide_7]: { shape: 38, fontSize: 25 },
   [Size.Extra_Wide_8]: { shape: 33, fontSize: 22 },
 };
+
+export const DELAY_TIME = 500;

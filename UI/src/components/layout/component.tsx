@@ -1,7 +1,6 @@
-import { IChildrenNode } from "../../config";
+import { IChildrenNode } from "config";
+
 import { PCBtnsSection } from "./components";
-import { useMediaQuery } from "hooks/useMediaQuery";
-import { ConditionalWrapper } from "components/conditional-wrapper";
 import {
   StyledContentWrapper,
   StyledLayout,
@@ -12,25 +11,17 @@ import {
 } from "./styles";
 
 const Layout: React.FC<IChildrenNode> = ({ children }) => {
-  const isMatches = useMediaQuery("(max-width: 920px), (max-height: 714px)");
-
   return (
-    <ConditionalWrapper
-      condition={!isMatches}
-      wrapper={(children) => (
-        <StyledLayout>
-          <StyledWrapper>
-            {children} <PCBtnsSection />
-          </StyledWrapper>
-        </StyledLayout>
-      )}
-    >
-      <StyledContentWrapper>
-        <StyledPCLine />
-        <StyledPCEffects />
-        <StyledRouterWrapper>{children}</StyledRouterWrapper>
-      </StyledContentWrapper>
-    </ConditionalWrapper>
+    <StyledLayout>
+      <StyledWrapper>
+        <StyledContentWrapper>
+          <StyledPCLine />
+          <StyledPCEffects />
+          <StyledRouterWrapper>{children}</StyledRouterWrapper>
+        </StyledContentWrapper>
+        <PCBtnsSection />
+      </StyledWrapper>
+    </StyledLayout>
   );
 };
 

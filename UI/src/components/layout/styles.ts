@@ -13,6 +13,9 @@ export const StyledLayout = styled.div`
   display: flex;
   align-items: flex-end;
   justify-content: center;
+  @media (max-width: 920px), (max-height: 714px) {
+    all: unset;
+  }
 `;
 
 export const StyledWrapper = styled.div`
@@ -28,6 +31,9 @@ export const StyledWrapper = styled.div`
   width: 967px;
   height: 750px;
   padding: 122px 110px;
+  @media (max-width: 920px), (max-height: 714px) {
+    all: unset;
+  }
 `;
 
 export const StyledContentWrapper = styled.div`

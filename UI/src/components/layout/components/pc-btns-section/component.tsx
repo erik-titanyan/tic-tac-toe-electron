@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, memo } from "react";
 
 import { useAudio } from "hooks";
 
@@ -11,6 +11,7 @@ const PCBtnsSection: React.FC = () => {
   const [isBtnOn, setIsBtnOn] = useState(true);
   const [isSoundOn, setIsSoundOn] = useState(false);
   const [, toggle] = useAudio(track);
+
   return (
     <>
       <StyledBtnsWrapper onClick={() => setIsBtnOn((prev) => !prev)}>
@@ -28,4 +29,4 @@ const PCBtnsSection: React.FC = () => {
   );
 };
 
-export default PCBtnsSection;
+export default memo(PCBtnsSection);

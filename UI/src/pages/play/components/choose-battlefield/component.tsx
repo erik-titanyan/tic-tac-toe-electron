@@ -3,8 +3,9 @@ import { StyledText } from "config";
 
 import { Size } from "pages/play/enums";
 import { StyledStepsWrapper } from "pages/play/styles";
+import { IChooseCommonProps } from "pages/play/types";
 
-const ChooseBattlefield: React.FC<{ onChoose: (value: Size) => void }> = ({
+const ChooseBattlefield: React.FC<IChooseCommonProps<Size>> = ({
   onChoose,
 }) => {
   return (
@@ -16,12 +17,12 @@ const ChooseBattlefield: React.FC<{ onChoose: (value: Size) => void }> = ({
           label="3x3"
           onClick={() => onChoose(Size.Standart)}
         />
-        <p>VS</p>
+        <p>x</p>
         <Button width="25%" label="4x4" onClick={() => onChoose(Size.Wide)} />
       </StyledStepsWrapper>
       <StyledStepsWrapper>
         <Button width="25%" label="5x5" onClick={() => onChoose(Size.Wider)} />
-        <p>VS</p>
+        <p>x</p>
         <Button
           width="25%"
           label="6x6"
@@ -34,7 +35,7 @@ const ChooseBattlefield: React.FC<{ onChoose: (value: Size) => void }> = ({
           label="7x7"
           onClick={() => onChoose(Size.Extra_Wide_7)}
         />
-        <p>VS</p>
+        <p>x</p>
         <Button
           width="25%"
           label="8x8"

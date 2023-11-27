@@ -5,16 +5,16 @@ import { Enemy, Player, Size } from "pages/play/enums";
 
 import { calculateWinner, checkTie, heuristic, delay, minimax } from "./utils";
 import { ReplyButton, StyledTD } from "./styles";
-import { Board } from "./types";
-import { sizeToShapeSize } from "./constants";
+import { Board, IGameProps } from "./types";
+import { DELAY_TIME, sizeToShapeSize } from "./constants";
 import "./styles.css";
 
-const Game: React.FC<{
-  boardSize: Size;
-  firstPlayer: Player;
-  secondPlayer: Player;
-  choosenOponent: Enemy;
-}> = ({ boardSize, firstPlayer, secondPlayer, choosenOponent }) => {
+const Game: React.FC<IGameProps> = ({
+  boardSize,
+  firstPlayer,
+  secondPlayer,
+  choosenOponent,
+}) => {
   const initState = useRef<Board>(Array(boardSize * boardSize).fill(null));
   const [board, setBoard] = useState([...initState.current]);
   const [turn, setTurn] = useState<Player>(Player.X);
@@ -29,7 +29,7 @@ const Game: React.FC<{
         choosenOponent === Enemy.Computer &&
         !winner
       ) {
-        await delay(500);
+        await delay(DELAY_TIME);
         if (boardSize === Size.Standart) {
           const bestMove = minimax(
             board,

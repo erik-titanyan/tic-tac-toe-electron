@@ -1,0 +1,14 @@
+.cmd-wrapper {
+    display: flex;
+}
+
+.cmd-text {
+    display: flex; 
+    margin-right: 5px
+}
+
+.cmd-pseudo-input {
+    display: flex;
+    color: #d1fb84;
+    text-shadow: 0 0 9px #d1fb84;
+}

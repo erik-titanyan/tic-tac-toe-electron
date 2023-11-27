@@ -18,7 +18,6 @@ export function useMediaQuery(query: string): boolean {
     const matchMedia = window.matchMedia(query);
     handleChange();
     matchMedia.addEventListener("change", handleChange);
-
     return () => {
       matchMedia.removeEventListener("change", handleChange);
     };

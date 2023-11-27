@@ -1,10 +1,11 @@
 import React, { Suspense, memo } from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
 
-import { Layout } from "../layout";
-import { IRoutingProps } from "./types";
 import { Cmd } from "components/cmd";
 import { RoutePaths } from "config";
+
+import { Layout } from "../layout";
+import { IRoutingProps } from "./types";
 
 const Routing: React.FC<IRoutingProps> = ({ routes }) => {
   const location = useLocation();

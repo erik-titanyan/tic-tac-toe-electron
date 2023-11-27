@@ -3,10 +3,9 @@ import { StyledText } from "config";
 
 import { Enemy } from "pages/play/enums";
 import { StyledStepsWrapper } from "pages/play/styles";
+import { IChooseCommonProps } from "pages/play/types";
 
-const ChooseEnemy: React.FC<{ onChoose: (value: Enemy) => void }> = ({
-  onChoose,
-}) => {
+const ChooseEnemy: React.FC<IChooseCommonProps<Enemy>> = ({ onChoose }) => {
   return (
     <>
       <StyledText $delay={0}>Choose your enemy</StyledText>
